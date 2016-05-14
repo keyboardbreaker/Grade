@@ -6,6 +6,7 @@ namespace Grades
 {
     class GradeBook
     {
+        public string Name;
         private List<float> grades;
 
         public GradeBook()
