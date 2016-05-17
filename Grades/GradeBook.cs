@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Grades
 {
-    class GradeBook
+    public class GradeBook
     {
         public string Name;
         private List<float> grades;
