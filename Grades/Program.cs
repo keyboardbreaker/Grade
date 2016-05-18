@@ -19,18 +19,31 @@ namespace Grades
 
             GradeStatistics stats = book.ComputeStatistics();
 
+            //listening for a name change event.
+            book.NameChanged += OnNameChanged;
+            book.NameChanged += OnNameChanged;
+            book.NameChanged += OnNameChanged2;
+            //book.NameChanged = new NamedChangedDelegate(OnNameChanged2); 
+            //wipes out all the previous subscriptions
 
-            WriteNames("scott", "dave", "stephen", "matt");
-
-            int number = 20;
-            WriteBytes(number);
-            //what are the bytes that make up a floating point number.
-            WriteBytes(stats.AverageGrade);
-
+            book.Name = "yjds's book";
+            WriteNames(book.Name);
             Console.WriteLine(stats.AverageGrade);
             Console.WriteLine(stats.LowestGrade);
             Console.WriteLine(stats.HighestGrade);
+            Console.ReadKey();
         }
+
+        private static void OnNameChanged2(string oldValue, string newValue)
+        {
+            Console.WriteLine("***");
+        }
+
+        private static void OnNameChanged(string oldValue, string newValue)
+        {
+            Console.WriteLine("Name changed from {0} to {1}", oldValue, newValue);
+        }
+
 
         private static void WriteBytes(float value)
         {

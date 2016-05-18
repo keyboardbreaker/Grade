@@ -6,6 +6,8 @@ namespace Grades
 {
     public class GradeBook
     {
+        public NamedChangedDelegate NameChanged;
+
         public string _name;//field
         private List<float> grades;
 
@@ -15,8 +17,24 @@ namespace Grades
             grades = new List<float>();
         }
 
+
         public string Name //property
-        { get; set; }
+        {
+            get { return _name; }
+
+            set
+            {
+                if (_name != value)
+                {
+                    var oldValue = _name;
+                    _name = value;
+                    if (NameChanged != null)
+                    {
+                        NameChanged(oldValue, value);
+                    }
+                }
+            } 
+        }
 
         public void AddGrade(float grade)
         {
