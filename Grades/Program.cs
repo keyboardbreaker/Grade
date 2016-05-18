@@ -12,12 +12,13 @@ namespace Grades
     {
         static void Main(string[] args)
         { 
-            GradeBook book = new GradeBook();
+            GradeBook book = new GradeBook("yj's book");
             book.AddGrade(91f);
             book.AddGrade(89.1f);
             book.AddGrade(75f);
 
             GradeStatistics stats = book.ComputeStatistics();
+
 
             WriteNames("scott", "dave", "stephen", "matt");
 

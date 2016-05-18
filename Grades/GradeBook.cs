@@ -6,13 +6,18 @@ namespace Grades
 {
     public class GradeBook
     {
-        public string Name;
+        public string _name;//field
         private List<float> grades;
 
-        public GradeBook()
+        public GradeBook(string name = "There is no Name") //default value
         {
+            Name = name;
             grades = new List<float>();
         }
+
+        public string Name //property
+        { get; set; }
+
         public void AddGrade(float grade)
         {
             if (grade >= 0 && grade <= 100)
