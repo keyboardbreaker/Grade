@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Markup;
 
 
 namespace Grades
 {
     public class GradeBook
     {
-        public NamedChangedDelegate NameChanged;
+        public event NamedChangedDelegate NameChanged;
 
         public string _name;//field
         private List<float> grades;
@@ -30,7 +31,10 @@ namespace Grades
                     _name = value;
                     if (NameChanged != null)
                     {
-                        NameChanged(oldValue, value);
+                        NameChangedEventArgs args = new NameChangedEventArgs();
+                        args.OldValue = oldValue;
+                        args.NewValue = value;
+                        NameChanged(this, args);
                     }
                 }
             } 

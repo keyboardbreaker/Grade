@@ -20,11 +20,10 @@ namespace Grades
             GradeStatistics stats = book.ComputeStatistics();
 
             //listening for a name change event.
-            book.NameChanged += OnNameChanged;
+            book.NameChanged += OnNameChanged; //adding new items into a list of methods to invoke
             book.NameChanged += OnNameChanged;
             book.NameChanged += OnNameChanged2;
-            //book.NameChanged = new NamedChangedDelegate(OnNameChanged2); 
-            //wipes out all the previous subscriptions
+
 
             book.Name = "yjds's book";
             WriteNames(book.Name);
@@ -34,15 +33,16 @@ namespace Grades
             Console.ReadKey();
         }
 
-        private static void OnNameChanged2(string oldValue, string newValue)
+        private static void OnNameChanged2(object sender, NameChangedEventArgs args)
         {
             Console.WriteLine("***");
         }
 
-        private static void OnNameChanged(string oldValue, string newValue)
+        private static void OnNameChanged(object sender, NameChangedEventArgs args)
         {
-            Console.WriteLine("Name changed from {0} to {1}", oldValue, newValue);
+            Console.WriteLine("Name changed from {0} to {1}", args.OldValue, args.NewValue);
         }
+
 
 
         private static void WriteBytes(float value)

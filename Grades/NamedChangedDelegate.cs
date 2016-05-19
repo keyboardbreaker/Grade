@@ -6,5 +6,10 @@ using System.Threading.Tasks;
 
 namespace Grades
 {
-    public delegate void NamedChangedDelegate(string oldValue, string newValue);
+    // so whoever is raising this event passes themselves
+    // a reference to themselves in as this first parameter and then
+    // NameChangedEvent Args are the actual event arguments that will be delivered
+    // to whoever is subscribing to this event
+    public delegate void NamedChangedDelegate(
+        object sender, NameChangedEventArgs args);
 }
