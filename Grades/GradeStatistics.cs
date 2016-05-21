@@ -12,39 +12,68 @@ namespace Grades
         public float HighestGrade;
         public float LowestGrade;
 
+        public string Description
+        {
+            get
+            {
+                string result;
+
+                switch (LetterGrade)
+                {
+                    case 'A':
+                        result = "Excellent";
+                        break;
+                    case 'B':
+                        result = "Above Average";
+                        break;
+                    case 'C':
+                        result = "Average";
+                        break;
+                    case 'D':
+                        result = "Below Average";
+                        break;
+                    default:
+                        result = "Fail";
+                        break;
+                }
+                return result;
+            }
+
+        }
+
         public GradeStatistics()
         {
             HighestGrade = 0;
             LowestGrade = float.MaxValue;
         }
 
-        public string LetterGrade
+        public char LetterGrade
         {
             get
             {
-                string result;
+                char result;
                 if (AverageGrade >= 90)
                 {
-                    return "A";
+                    result = 'A';
                 }
                 else if (AverageGrade >= 80)
                 {
-                    result = "B";
+                    result = 'B';
                 }
 
                 else if (AverageGrade >= 70)
                 {
-                    result = "C";
+                    result = 'C';
                 }
 
                 else if (AverageGrade >= 60)
                 {
-                    result = "D";
+                    result = 'D';
                 }
 
                 else
                 {
-                    result = "F";
+                    result = 'F';
                 }
 
                 return result;

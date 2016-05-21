@@ -23,7 +23,7 @@ namespace Grades
             Console.WriteLine(stats.AverageGrade);
             Console.WriteLine(stats.LowestGrade);
             Console.WriteLine(stats.HighestGrade);
-            Console.WriteLine(stats.LetterGrade);
+            Console.WriteLine("{0}: {1} ", stats.LetterGrade, stats.Description);
             Console.ReadKey();
         }
 
