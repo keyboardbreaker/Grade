@@ -16,6 +16,7 @@ namespace Grades
             book.AddGrade(91f);
             book.AddGrade(89.1f);
             book.AddGrade(75f);
+            book.WriteGrades(Console.Out);
 
             GradeStatistics stats = book.ComputeStatistics();
 
