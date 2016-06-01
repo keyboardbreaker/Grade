@@ -26,6 +26,11 @@ namespace Grades
 
             set
             {
+                if (String.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException("Name Cannot be Null or Empty");
+                }
+
                 if (_name != value)
                 {
                     var oldValue = _name;
